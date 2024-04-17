@@ -14,9 +14,10 @@ import { TextH1, TextH3, TextP } from "@components/Typography";
 import { type TForgotPasswordCodeSchema, forgotPasswordCodeSchema } from "@constants/schemas";
 
 // External Dependencies
+import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-export default function StepCode({ setCurrentStep }: { setCurrentStep: React.Dispatch<React.SetStateAction<number>> }) {
+export default function StepCode({ code, setCurrentStep }: { code: string, setCurrentStep: React.Dispatch<React.SetStateAction<number>> }) {
     // Translations
     const t = useTranslations("ForgotPassword");
     const localActive = useLocale();
@@ -33,7 +34,11 @@ export default function StepCode({ setCurrentStep }: { setCurrentStep: React.Dis
 
     // Functions
     const onSubmit: SubmitHandler<TForgotPasswordCodeSchema> = async (data) => {
-        console.log(data);        
+        if (data.code != code) {
+            toast.error(t("ErrorCode"));
+            return;
+        }
+
         setCurrentStep(3);
     };
     

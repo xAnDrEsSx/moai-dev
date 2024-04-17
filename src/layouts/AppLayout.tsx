@@ -11,7 +11,7 @@ import NavHeader from "@components/NavHeader";
 import SliderBar from "@components/SliderBar";
 
 // Icons
-import { IconMenu2 } from "@tabler/icons-react";
+import { IconMenu2, IconArrowRightFromArc } from "@tabler/icons-react";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
     // States

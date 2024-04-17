@@ -2,6 +2,7 @@
 
 // NextJS
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 // ReactJS
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -9,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 // NextUI
-import { Divider } from "@nextui-org/react";
+import { Button, Divider } from "@nextui-org/react";
 
 // Constants
 import { userSchema, type TUserSchema } from "@constants/schemas";
@@ -19,12 +20,12 @@ import FormUserInfo from "@ui/security/users/FormUserInfo";
 import FormAccountInfo from "@ui/security/users/FormAccountInfo";
 
 // Components
-import { BtnPrimary, BtnSecondary } from "@components/Buttons";
+import { BtnPrimary } from "@components/Buttons";
 import { TextH1 } from "@components/Typography";
 import BreadCrumbNav from "@components/BreadCrumbNav";
 
 // Icons
-import { IconBuildingBank, IconUser } from "@tabler/icons-react";
+import { IconArrowLeft, IconBuildingBank, IconUser } from "@tabler/icons-react";
 
 // Services
 import { getOneRole } from "@services/roles";
@@ -43,6 +44,9 @@ export default function ViewUsersPage({ params }: { params: { id: string, role: 
 
     // Translation
     const t = useTranslations("Users");
+
+    // Navigation
+    const { back } = useRouter();
 
     // State
     const [tab, setTab] = useState<"general" | "account">("general");
@@ -79,14 +83,9 @@ export default function ViewUsersPage({ params }: { params: { id: string, role: 
             <header className="flex w-full justify-between items-center">
                 <BreadCrumbNav routes={[{ href: "/security/users", name: "Users.Users" }, { href: `/security/users/view/${id}/${role}`, name: "Users.View" }]} />
 
-                <div className="flex gap-4">
-                    <BtnSecondary size="md" className="w-20" style="dangerGhost">
-                        {t("Cancel")}
-                    </BtnSecondary>
-                    <BtnPrimary size="md" className="w-20" type="submit">
-                        {t("Save")}
-                    </BtnPrimary>
-                </div>
+                <Button isIconOnly variant="ghost" color="danger" size="md" onClick={back}>
+                    <IconArrowLeft size={20} />
+                </Button>
             </header>
 
             <section className="flex w-full h-full gap-6 border-2 rounded-2xl p-4 border-[#D4D4D8]">
@@ -102,17 +101,19 @@ export default function ViewUsersPage({ params }: { params: { id: string, role: 
                         <IconUser size={20} color={tab === "general" ? "white" : "#263065"} />
                         {t("GeneralInfo")}
                     </BtnPrimary>
-                    <BtnPrimary
-                        className={joinClassNames(
-                            tab === "account" ? "bg-hover" : "bg-transparent text-primary",
-                            "flex justify-start"
-                        )}
-                        onClick={() => setTab("account")}
-                        size="md"
-                    >
-                        <IconBuildingBank size={20} color={tab === "account" ? "white" : "#263065"} />
-                        {t("AccountInfo")}
-                    </BtnPrimary>
+                    {role === "2" && (
+                        <BtnPrimary
+                            className={joinClassNames(
+                                tab === "account" ? "bg-hover" : "bg-transparent text-primary",
+                                "flex justify-start"
+                            )}
+                            onClick={() => setTab("account")}
+                            size="md"
+                        >
+                            <IconBuildingBank size={20} color={tab === "account" ? "white" : "#263065"} />
+                            {t("AccountInfo")}
+                        </BtnPrimary>
+                    )}
                 </div>
 
                 <Divider orientation="vertical" />

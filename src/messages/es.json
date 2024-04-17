@@ -1,4 +1,20 @@
 {
+    "ChangePassword": {
+        "BtnConfirm": "Confirmar",
+        "ConfirmPassword": "Confirmar contraseña",
+        "ConfirmPasswordPlaceholder": "Confirmar contraseña",
+        "Description": "Para activar la cuenta actualice la contraseña",
+        "ErrorPassword": "Las contraseñas no coinciden",
+        "Password": "Nueva contraseña",
+        "PasswordPlaceholder": "Ingrese la contraseña",
+        "PasswordRequirements": "Tenga en cuenta estas características al crear la contraseña:",
+        "PasswordRequirements1": "La longitud ideal es de 6 a 8 caracteres.",
+        "PasswordRequirements2": "Debe incluir letras mayúsculas",
+        "PasswordRequirements3": "Debe incluir letras minúsculas",
+        "PasswordRequirements4": "Debe incluir números",
+        "Success": "La contraseña ha sido cambiada con éxito",
+        "Title": "Actualizar contraseña"
+    },
     "ForgotPassword": {
         "BtnConfirm": "Confirmar",
         "BtnNext": "Siguiente",
@@ -11,6 +27,9 @@
         "DescriptionPassword": "Para restablecer la contraseña debe crea una nueva.",
         "Email": "Correo electrónico",
         "EmailPlaceholder": "Ingrese su correo",
+        "ErrorCode": "El código de verificación no es válido",
+        "ErrorEmail": "El correo electrónico no es válido",
+        "ErrorPassword": "Las contraseñas no coinciden",
         "LinkBack": "Volver al Inicio de sesión",
         "LinkCode": "¿No has recibido ningún código de verificación?",
         "Password": "Nueva contraseña",
@@ -20,6 +39,8 @@
         "PasswordRequirements2": "Debe incluir letras mayúsculas",
         "PasswordRequirements3": "Debe incluir letras minúsculas",
         "PasswordRequirements4": "Debe incluir números",
+        "SuccessEmail": "El correo electrónico ha sido enviado con éxito",
+        "SuccessPassword": "La contraseña ha sido restablecida con éxito",
         "TitleCode": "Código de verificación",
         "TitleEmail": "¿Olvidaste tu contraseña?",
         "TitlePassword": "Restablecer Contraseña"
@@ -50,6 +71,10 @@
         "TimeReserveDescription": "Indique el intervalo de tiempo, en horas, que debe transcurrir antes de poder realizar una reserva; sin que deba ser aprobada.",
         "TimeReview": "Vigencia del enlace de reseña",
         "TimeReviewDescription": "Por favor, especifica la duración, en horas, durante la cual estará activo el enlace de reseña una vez finalice la actividad."
+    },
+    "Profile": {
+        "BankAccount": "Cuenta bancaria",
+        "Detail": "Detalles del perfil"
     },
     "Roles": {
         "Actions": "Acciones",
@@ -86,6 +111,8 @@
         "BankPlaceholder": "Ingrese nombre del banco",
         "Cancel": "Cancelar",
         "CC": "Cédula de ciudadanía",
+        "Cellphone": "Celular",
+        "CellphonePlaceholder": "Ingrese celular",
         "Confirm": "Confirmar",
         "ConfirmEmail": "Confirmar correo electrónico",
         "ConfirmEmailPlaceholder": "Confirmar correo",
@@ -117,7 +144,10 @@
         "NumberAccountPlaceholder": "Ingrese número de cuenta bancaria",
         "Of": "de",
         "ParametersSaved": "Nuevo usuario creado con éxito",
+        "ParametersUpdated": "Los cambios se han guardado con éxito.",
         "Passport": "Pasaporte",
+        "Prefix": "Cod país",
+        "PrefixPlaceholder": "Seleccione un código de país",
         "Role": "Rol",
         "RolePlaceholder": "Seleccione un rol",
         "Rows per page": "Filas por página",

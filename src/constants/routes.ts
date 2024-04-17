@@ -3,7 +3,7 @@ import {
     IconCalendarClock,
     IconSettings,
     IconShieldLock,
-    IconUser,
+    IconUserCircle,
     IconUsers,
     IconVocabulary,
 } from "@tabler/icons-react";
@@ -53,7 +53,7 @@ export const routes = [
     {
         children: [],
         href: "profile",
-        icon: IconUser,
+        icon: IconUserCircle,
         isVisible: false,
         name: "Profile",
     },

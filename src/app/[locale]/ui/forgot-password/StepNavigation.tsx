@@ -25,6 +25,9 @@ export default function StepNavigation() {
     // State
     const [currentStep, setCurrentStep] = useState<number>(1);
 
+    const [email, setEmail] = useState<string>("");
+    const [code, setCode] = useState<string>("");
+
     if (status === "authenticated") {
         redirect(`/${locale}/security/users`);
     }
@@ -33,9 +36,9 @@ export default function StepNavigation() {
         <div className="flex flex-col items-center justify-center gap-10 m-auto">
             <StepHeader currentStep={currentStep} />
 
-            {currentStep === 1 && <StepEmail setCurrentStep={setCurrentStep} />}
-            {currentStep === 2 && <StepCode setCurrentStep={setCurrentStep} />}
-            {currentStep === 3 && <StepPassword />}
+            {currentStep === 1 && <StepEmail setEmail={setEmail} setCode={setCode} setCurrentStep={setCurrentStep} />}
+            {currentStep === 2 && <StepCode code={code} setCurrentStep={setCurrentStep} />}
+            {currentStep === 3 && <StepPassword email={email} />}
         </div>
     );
 }

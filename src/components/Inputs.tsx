@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Autocomplete, AutocompleteItem, Input } from "@nextui-org/react";
 
 // Icons
-import { IconEye, IconEyeClosed, IconSearch } from "@tabler/icons-react";
+import { IconEye, IconEyeClosed } from "@tabler/icons-react";
 
 function BtnPassword ({ isVisible, toggleVisibility }: IBtnPassword) {
     return (
@@ -142,7 +142,7 @@ export function InputSelect ({
         <Autocomplete
             {...props}
             {...register(name)}
-            classNames={{ base: "text-primary font-semibold" }}
+            classNames={{ base: "font-semibold" }}
             defaultItems={options}
             errorMessage={isError && errors[name].message}
             name={name}
@@ -156,23 +156,5 @@ export function InputSelect ({
                     {item?.label}
                 </AutocompleteItem>)}
         </Autocomplete>
-    );
-}
-
-export function InputSearch ({
-    label,
-    placeholder,
-}: IInputApp) {
-    return (
-        <Input
-            classNames={{ label: "text-primary font-semibold" }}
-            endContent={<IconSearch />}
-            fullWidth
-            isClearable
-            label={label}
-            placeholder={placeholder}
-            size="sm"
-            variant="bordered"
-        />
     );
 }

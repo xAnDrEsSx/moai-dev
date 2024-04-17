@@ -13,10 +13,18 @@ import { TextH1, TextH3, TextP } from "@components/Typography";
 // Constants
 import { type TForgotPasswordEmailSchema, forgotPasswordEmailSchema } from "@constants/schemas";
 
+// Services
+import { sendEmail } from "@services/forgot-password";
+
 // External Dependencies
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "sonner";
 
-export default function StepEmail({ setCurrentStep }: { setCurrentStep: React.Dispatch<React.SetStateAction<number>> }) {
+export default function StepEmail({ setEmail, setCode, setCurrentStep }: {
+    setEmail: React.Dispatch<React.SetStateAction<string>>
+    setCode: React.Dispatch<React.SetStateAction<string>>,
+    setCurrentStep: React.Dispatch<React.SetStateAction<number>>
+}) {
     // Translations
     const t = useTranslations("ForgotPassword");
     const localActive = useLocale();
@@ -33,8 +41,16 @@ export default function StepEmail({ setCurrentStep }: { setCurrentStep: React.Di
 
     // Functions
     const onSubmit: SubmitHandler<TForgotPasswordEmailSchema> = async (data) => {
-        console.log(data);        
-        setCurrentStep(2);
+        sendEmail({ userEmail: data.email })
+            .then((res) => {
+                toast.success(t("SuccessEmail"));
+                setEmail(data.email);
+                setCode(res.data.tokens);
+                setCurrentStep(2);
+            })
+            .catch(() => {
+                toast.error(t("ErrorEmail"));
+            });
     };
     
     return (

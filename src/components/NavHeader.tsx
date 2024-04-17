@@ -29,8 +29,8 @@ export default function NavHeader({ setOpen }: { setOpen: React.Dispatch<React.S
     const t = useTranslations("SliderBar");
 
     // Constants
-    const firstName = session?.user?.user?.name || "Unknown";
-    const lastName = session?.user?.user?.lastName || "Unknown";
+    const firstName = session?.data?.user?.name || "Unknown";
+    const lastName = session?.data?.user?.lastName || "Unknown";
     const completeName = `${firstName} ${lastName}`;
 
     const routeNav = routes.find((route) => route.href === pathname?.split("/")[2]) || routes[0]; 
@@ -78,7 +78,7 @@ export default function NavHeader({ setOpen }: { setOpen: React.Dispatch<React.S
                                     </TextP>
 
                                     <TextP>
-                                        {session?.user?.user?.userEmail || "Unknown"}
+                                        {session?.data?.user?.userEmail || "Unknown"}
                                     </TextP>
                                 </DropdownItem>
                             </DropdownSection>
@@ -132,7 +132,7 @@ export default function NavHeader({ setOpen }: { setOpen: React.Dispatch<React.S
                                 </TextP>
 
                                 <TextP>
-                                    {session?.user?.user?.userEmail || "Unknown"}
+                                    {session?.data?.user?.userEmail || "Unknown"}
                                 </TextP>
                             </DropdownItem>
                         </DropdownSection>

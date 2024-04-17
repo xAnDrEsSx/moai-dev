@@ -12,6 +12,7 @@ export default function FormAccountInfo({ data, register, errors, status }: IFor
         <>
             <InputApp
                 className="w-full md:w-1/2"
+                defaultValue={data?.fk_seller?.bankName}
                 errors={errors}
                 isDisabled={status === "view"}
                 isRequired
@@ -23,10 +24,11 @@ export default function FormAccountInfo({ data, register, errors, status }: IFor
 
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                 <InputSelect
+                    defaultSelectedKey={data?.fk_seller?.accountType}
                     errors={errors}
                     options={[
-                        { label: t("Saving"), value: "Saving" },
-                        { label: t("Current"), value: "Current" },
+                        { label: t("Saving"), value: "Ahorros" },
+                        { label: t("Current"), value: "Corriente" },
                     ]}
                     isDisabled={status === "view"}
                     isRequired
@@ -36,6 +38,7 @@ export default function FormAccountInfo({ data, register, errors, status }: IFor
                     register={register}
                 />
                 <InputApp
+                    defaultValue={data?.fk_seller?.accountNumber}
                     errors={errors}
                     isDisabled={status === "view"}
                     isRequired

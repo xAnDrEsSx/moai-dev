@@ -1,4 +1,5 @@
 // NextJS
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 // ReactJS
@@ -6,18 +7,25 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 // Components
 import { BtnPrimary } from "@components/Buttons";
-import { InputApp } from "@components/Inputs";
+import { InputPassword } from "@components/Inputs";
 import { TextH1, TextP } from "@components/Typography";
 
 // Constants
-import { type TForgotPasswordChangeSchema, forgotPasswordChangechema } from "@constants/schemas";
+import { type TForgotPasswordChangeSchema, forgotPasswordChangeSchema } from "@constants/schemas";
+
+// Services
+import { restorePassword } from "@services/forgot-password";
 
 // External Dependencies
+import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-export default function StepPassword() {
+export default function StepPassword({ email }: { email: string }) {
     // Translations
     const t = useTranslations("ForgotPassword");
+
+    // Navigation
+    const { push } = useRouter();
 
     // Form
     const {
@@ -25,15 +33,22 @@ export default function StepPassword() {
         handleSubmit,
         register
     } = useForm<TForgotPasswordChangeSchema>({
-        resolver: zodResolver(forgotPasswordChangechema),
+        resolver: zodResolver(forgotPasswordChangeSchema),
         mode: "all"
     });
 
     // Functions
     const onSubmit: SubmitHandler<TForgotPasswordChangeSchema> = async (data) => {
-        console.log(data);   
+        restorePassword({ userEmail: email, password: data.password })
+            .then(() => {
+                toast.success(t("SuccessPassword"));
+                push("/login");
+            })
+            .catch(() => {
+                toast.error(t("ErrorPassword"));
+            });
     };
-    
+
     return (
         <form className="flex flex-col gap-6 w-96" onSubmit={handleSubmit(onSubmit)}>
             <TextH1 className="font-semibold text-2xl text-primary">
@@ -63,7 +78,7 @@ export default function StepPassword() {
                 </li>
             </ul>
             
-            <InputApp
+            <InputPassword
                 errors={errors}
                 label={t("Password")}
                 name="password"
@@ -71,7 +86,7 @@ export default function StepPassword() {
                 register={register}
             />
 
-            <InputApp
+            <InputPassword
                 errors={errors}
                 label={t("ConfirmPassword")}
                 name="confirmPassword"

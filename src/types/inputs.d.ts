@@ -43,7 +43,7 @@ interface IOption {
 }
 
 interface IInputSelect extends IInput {
-    defaultSelectedKeys?: string | "all" | React.Key[];
+    defaultSelectedKey?: string | "all" | React.Key[];
     errors?: FieldErrorForm;
     name: string;
     nameAditional?: string;

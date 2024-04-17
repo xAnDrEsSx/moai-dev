@@ -57,11 +57,12 @@ export default function TableLayout({ children, data, lngKey = "Table", setTable
                     </div>
         
                     <Pagination
-                        showControls
                         color="primary"
-                        page={page}
-                        total={pages}
+                        initialPage={1}
                         onChange={(page) => handlePageChange(page)}
+                        page={page || 1}
+                        showControls
+                        total={pages}
                     />
                 </div>
             }

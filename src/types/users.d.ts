@@ -64,3 +64,57 @@ interface IFormUser {
     role?: IRole | null;
     status: "view" | "edit" | "new";
 }
+
+interface AccountInformation {
+    bank: string;
+    id?: number;
+    numberAccount: string;
+    typeAccount: string;
+}
+
+interface Zone {
+    country: number;
+    destination: string;
+    id?: number;
+}
+
+interface DtoCreateUserSeller {
+    accountInformation: AccountInformation;
+    address: string;
+    cel: string;
+    document: string;
+    documentType: string;
+    lastName: string;
+    nacionality: string;
+    name: string;
+    prefix: number;
+    userEmail: string;
+    zone: Zone;
+}
+
+interface DtoUpdateUserSeller {
+    accountInformation: AccountInformation;
+    address: string;
+    cel: string;
+    document: string;
+    documentType: string;
+    lastName: string;
+    nacionality: string;
+    name: string;
+    prefix: number;
+    userId: string;
+    zone: Zone;
+}
+
+interface DtoCreateUserAdmin {
+    fk_role: number;
+    lastName: string;
+    name: string;
+    userEmail: string;
+}
+
+interface DtoUpdateUserAdmin {
+    lastName: string;
+    name: string;
+    userId: string;
+}
