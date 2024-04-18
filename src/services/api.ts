@@ -6,7 +6,7 @@ import { NEXT_URL_API } from "@configs/env";
 import { useSession } from "next-auth/react";
 
 export const api = axios.create({
-    baseURL: NEXT_URL_API || "http://localhost:8000",
+    baseURL: "http://alb-ecs-moai-desarrollo-882999684.us-east-2.elb.amazonaws.com:8060",
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

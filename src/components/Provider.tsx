@@ -14,7 +14,7 @@ import { Toaster } from "sonner";
 
 export default function Provider({ children }: { children: React.ReactNode }) {
     return (        
-        <SessionProvider>
+        <SessionProvider session={null}>
             <ReactQueryClientProvider>
                 <NextUIProvider>
                     <Toaster richColors closeButton position="top-center" />

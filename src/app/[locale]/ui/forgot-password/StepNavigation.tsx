@@ -18,7 +18,6 @@ export default function StepNavigation() {
     // Auth
     const { status } = useSession();
 
-
     // Navigation
     const locale = useLocale(); 
 

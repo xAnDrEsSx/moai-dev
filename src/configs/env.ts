@@ -1,5 +1,5 @@
 export const NEXT_URL_API =
-    process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    "http://alb-ecs-moai-desarrollo-882999684.us-east-2.elb.amazonaws.com:8060";
 
 export const NEXT_COGNITO_CLIENT_ID =
     process.env.NEXT_COGNITO_CLIENT_ID || "cognito-client-id";

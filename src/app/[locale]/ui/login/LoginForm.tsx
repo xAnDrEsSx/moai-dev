@@ -18,7 +18,6 @@ import { InputApp, InputPassword } from "@components/Inputs";
 import { TextH1, TextH3 } from "@components/Typography";
 
 // External Dependencies
-import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function LoginForm() {

@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,20 +22,58 @@
       }
     ],
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@configs/*": ["./src/configs/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@contexts/*": ["./src/contexts/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@messages/*": ["./src/messages/*"],
-      "@pages/*": ["./src/app/*"],
-      "@services/*": ["./src/services/*"],
-      "@types/*": ["./src/types/*"],
-      "@ui/*": ["./src/app/[locale]/ui/*"],
-      "@utils/*": ["./src/utils/*"],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@configs/*": [
+        "./src/configs/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@messages/*": [
+        "./src/messages/*"
+      ],
+      "@mocks/*": [
+        "./src/__mocks__/*"
+      ],
+      "@pages/*": [
+        "./src/app/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@tests/*": [
+        "./src/__tests__/*"
+      ],
+      "@types/*": [
+        "./src/types/*"
+      ],
+      "@ui/*": [
+        "./src/app/[locale]/ui/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "dist/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -2,7 +2,7 @@
 import { redirect } from "next/navigation";
 import { useLocale } from "next-intl";
 
-export default function LoginPage() {
+export default function MainPage() {
     // Translation
     const localActive = useLocale(); 
 
